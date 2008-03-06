@@ -17,7 +17,7 @@ describe 'A file with a know extension' do
   
 end
 
-describe 'A file with anunknow extension' do
+describe 'A file with an unknown extension' do
   
   before(:each) do
     @file = File.open(File.dirname(__FILE__) + '/fixtures/file.unknown')
@@ -27,7 +27,7 @@ describe 'A file with anunknow extension' do
     File.extname(@file.path).should == '.unknown'
   end
   
-  it 'should have an unkwown  mime type' do
+  it 'should have an unknown mime type' do
    File.mime_type?(@file).should == "unknown/unknown"
   end
   
