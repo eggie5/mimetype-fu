@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + '/spec_helper'
+#require File.dirname(__FILE__) + '/spec_helper'
 require File.dirname(__FILE__) + '/../lib/mimetype_fu'
 
 describe 'A file with a know extension' do
@@ -47,11 +47,21 @@ end
 
 describe "An unknown extension" do
     
-    before(:each) do
-      @file_path = 'file.unknown'
-    end
-    
-    it 'should have an unknown mime type' do
-      File.mime_type?(@file_path).should == "unknown/unknown"
-    end
+  before(:each) do
+    @file_path = 'file.unknown'
+  end
+
+  it 'should have an unknown mime type' do
+    File.mime_type?(@file_path).should == "unknown/unknown"
+  end
+end
+
+describe "A file path with no extension" do
+  before(:each) do
+    @file_path = "README"
+  end
+  
+  it 'should have an unknown mime type' do
+    File.mime_type?(@file_path).should == "unknown/unknown"
+  end
 end
